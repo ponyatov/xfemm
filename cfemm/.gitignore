@@ -1,0 +1,13 @@
+CMakeFiles/
+CMakeCache.txt
+bin/
+lib/*.a
+
+fmesher/
+fpproc/
+hpproc/
+hsolver/
+fsolver/
+
+Makefile
+cmake_install.cmake
