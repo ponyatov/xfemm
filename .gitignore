@@ -3,6 +3,6 @@
 .hg/
 .*.md.html
 
-tmp/
+tmp
 ngspice/
 qucs/

@@ -35,8 +35,13 @@ ngspice/bin/ngspice: ../ngspice/configure
 	cd ../ngspice ; ./autogen.sh
 
 packages:
-	sudo apt install libxaw7-dev
-	
-qucs: qucs/README
-qucs/README:
-	git clone -o gh --depth=1 https://github.com/ra3xdh/qucs_s.git qucs
+	sudo apt install libxaw7-dev libqt4-dev
+
+.PHONY: qucs	
+qucs: qucs/bin/qucs-s
+qucs/bin/qucs-s: tmp/qucs/README.md
+	rm -rf tmp/qucs/build ; mkdir tmp/qucs/build ; cd tmp/qucs/build ;\
+	cmake .. -DWITH_SPICE=ON -DCMAKE_INSTALL_PREFIX=$(CWD)/qucs &&\
+	make -j$(CPU_CORES) && make install
+tmp/qucs/README.md:
+	git clone -o gh --depth=1 https://github.com/ra3xdh/qucs_s.git tmp/qucs
