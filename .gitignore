@@ -6,3 +6,6 @@
 tmp
 ngspice/
 qucs/
+
+*.ngspice
+
