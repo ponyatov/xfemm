@@ -4,3 +4,4 @@
 .*.md.html
 
 tmp/
+ngspice/

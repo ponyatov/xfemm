@@ -24,14 +24,15 @@ doc: doc/manual42.pdf
 doc/manual42.pdf:
 	$(WGET) -O $@ http://www.femm.info/Archives/$@
 
-SPICE = ../ngspice/configure ngspice/xz
+SPICE = ngspice/bin/ngspice
 .PHONY: spice
 spice: $(SPICE)
+ngspice/bin/ngspice: ../ngspice/configure
+	rm -rf $(TMP)/ngspice ; mkdir $(TMP)/ngspice ; cd $(TMP)/ngspice ;\
+	$(CWD)/../ngspice/configure --prefix=$(CWD)/ngspice &&\
+	make -j$(CPU_CORES) && make install
 ../ngspice/configure:
 	cd ../ngspice ; ./autogen.sh
-ngspice/xz: ../ngspice/configure
-	rm -rf $(TMP)/ngspice ; mkdir $(TMP)/ngspice ; cd $(TMP)/ngspice ;\
-	$(CWD)/../ngspice/configure --prefix=$(CWD)/ngspice && make -j$(CPU_CORES)
 
 packages:
 	sudo apt install libxaw7-dev
