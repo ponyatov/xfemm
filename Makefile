@@ -10,7 +10,7 @@ BIN = cfemm/bin/fmesher cfemm/bin/fpproc-test \
 		cfemm/bin/hsolver
 		
 .PHONY: all
-all: $(BIN) doc spice
+all: $(BIN) doc spice qucs
 
 $(BIN):
 	cd cfemm ; cmake . && make
@@ -36,3 +36,7 @@ ngspice/bin/ngspice: ../ngspice/configure
 
 packages:
 	sudo apt install libxaw7-dev
+	
+qucs: qucs/README
+qucs/README:
+	git clone -o gh --depth=1 https://github.com/ra3xdh/qucs_s.git qucs
