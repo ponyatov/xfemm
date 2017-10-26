@@ -20,5 +20,5 @@ this is XFEMM fork from https://sourceforge.net/projects/xfemm/
 ### Build
 
 ```
-$ cd ~/xfemm/cfemm ; make
+$ cd ~/xfemm ; make
 ```
