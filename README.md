@@ -16,3 +16,9 @@ this is XFEMM fork from https://sourceforge.net/projects/xfemm/
 ~/xfemm
 ~/ngspice
 ```
+
+### Build
+
+```
+$ cd ~/xfemm/cfemm ; make
+```
